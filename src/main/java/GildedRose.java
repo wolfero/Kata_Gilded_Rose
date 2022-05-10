@@ -1,8 +1,13 @@
 class GildedRose {
+
     Item[] items;
+    ConjuredItem conjured_item;
+    QualityUtil qualityUtil;
 
     public GildedRose(Item[] items) {
         this.items = items;
+        this.conjured_item = new ConjuredItem();
+        this.qualityUtil = new QualityUtil();
     }
 
     public void updateQuality() {
@@ -11,10 +16,10 @@ class GildedRose {
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (items[i].quality > 0) {
                     if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                        if(items[i].name.contains("conjured_")){
-                            items[i].quality = items[i].quality - 2;
+                        if (items[i].name.contains(conjured_item.tag())) {
+                            items[i].quality = qualityUtil.decreasesConjuredItems(items[i].quality);
                         } else {
-                            items[i].quality = items[i].quality - 1;
+                            items[i].quality = qualityUtil.decreasesNormalItems(items[i].quality);
                         }
                     }
                 }
