@@ -6,7 +6,8 @@ public class GildedRoseShould {
 
     @Test
     public void decreases_by_one_point_quality_per_day_in_normal_items() {
-        Item[] items = new Item[]{new Item("normal_item", 1, 1)};
+        Item normal_item = new Item("normal_item", 1, 1);
+        Item[] items = new Item[]{normal_item};
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
@@ -16,7 +17,8 @@ public class GildedRoseShould {
 
     @Test
     public void decreases_by_two_point_quality_per_day_in_conjured_items() {
-        Item[] conjured_items = new Item[]{new Item("conjured_item", 1, 2)};
+        ConjuredItem conjured_item = new ConjuredItem("conjured_item", 1, 2);
+        ConjuredItem[] conjured_items = new ConjuredItem[]{conjured_item};
         GildedRose app = new GildedRose(conjured_items);
 
         app.updateQuality();
@@ -26,7 +28,8 @@ public class GildedRoseShould {
 
     @Test
     public void do_not_decreases_conjured_item_quality_under_zero() {
-        Item[] conjured_items = new Item[]{new Item("conjured_item", 1, 1)};
+        ConjuredItem conjured_item = new ConjuredItem("conjured_item", 1, 1);
+        ConjuredItem[] conjured_items = new ConjuredItem[]{conjured_item};
         GildedRose app = new GildedRose(conjured_items);
 
         app.updateQuality();
