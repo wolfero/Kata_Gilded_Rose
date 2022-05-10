@@ -7,6 +7,14 @@ public class QualityUtil {
     }
 
     public int decreasesConjuredItems(int quality) {
-        return quality - conjuredItemsDecrease;
+        final int newQuality = quality - conjuredItemsDecrease;
+        return formatNegativeQuality(newQuality);
+    }
+
+    private int formatNegativeQuality(int quality) {
+        if (quality < 0) {
+            quality = 0;
+        }
+        return quality;
     }
 }
