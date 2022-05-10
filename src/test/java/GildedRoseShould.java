@@ -23,4 +23,14 @@ public class GildedRoseShould {
 
         assertEquals(0, app.items[0].quality);
     }
+
+    @Test
+    public void do_not_decreases_conjured_item_quality_under_zero() {
+        Item[] conjured_items = new Item[]{new Item("conjured_item", 1, 1)};
+        GildedRose app = new GildedRose(conjured_items);
+
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
 }
