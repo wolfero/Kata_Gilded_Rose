@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GildedRoseShould {
 
     @Test
-    public void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
+    public void decreases_by_one_point_quality_per_day_in_normal_items() {
+        Item[] items = new Item[] { new Item("normal_item", 1, 1) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
 
-        assertEquals("fixme", app.items[0].name);
+        assertEquals(0, app.items[0].quality);
     }
 }
