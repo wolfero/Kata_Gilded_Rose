@@ -14,4 +14,14 @@ public class GildedRoseShould {
 
         assertEquals(0, app.items[0].quality);
     }
+
+    @Test
+    public void decreases_by_two_point_quality_per_day_in_conjured_items() {
+        Item[] items = new Item[] { new Item("conjured_item", 1, 2) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
 }
