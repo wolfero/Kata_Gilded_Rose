@@ -1,8 +1,10 @@
 public class ManageItems {
 
+    private final int minQuality = 0;
+
     public int formatNegativeQuality(int quality) {
-        if (quality < 0) {
-            quality = 0;
+        if (quality < minQuality) {
+            quality = minQuality;
         }
         return quality;
     }
