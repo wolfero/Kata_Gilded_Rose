@@ -9,6 +9,6 @@ describe("Gilded Rose should", () => {
 
     app.updateQuality();
 
-    expect(0).toEqual(app.items[0].quality);
+    expect(app.items[0].quality).toEqual(0);
   });
 });
