@@ -20,4 +20,13 @@ describe("Gilded Rose should", () => {
 
     expect(app.items[0].quality).toEqual(0);
   });
+
+  it("not decreases conjured items quality under zero", () => {
+    const normalItems: Item[] = [new Item("conjured_item", 1, 1)];
+    const app: GildedRose = new GildedRose(normalItems);
+
+    app.updateQuality();
+
+    expect(app.items[0].quality).toEqual(0);
+  });
 });
