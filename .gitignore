@@ -1,3 +1,5 @@
-/java-junit5-maven-template.iml
-/.idea/
-/target/
+node_modules
+build
+.vscode
+.idea
+coverage
