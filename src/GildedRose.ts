@@ -1,10 +1,14 @@
+import { ConjuredItem } from './ConjuredItem';
 import { Item } from './Item';
+import { ManageItem } from './ManageItem';
 
 export class GildedRose {
-  public items: Item[];
+  public readonly items: Item[];
+  private readonly manageItem: ManageItem;
 
   constructor(items: Item[]) {
     this.items = items;
+    this.manageItem = new ManageItem();
   }
 
   public updateQuality() {
@@ -14,7 +18,13 @@ export class GildedRose {
         if (item.quality > 0) {
           if (item.name !== 'Sulfuras, Hand of Ragnaros') {
             if (item.name.startsWith('conjured')) {
-              item.quality = this.formatNegativeQuality(item.quality - 2);
+              const newConjuredItem: ConjuredItem = new ConjuredItem(
+                item.name,
+                item.sellIn,
+                item.quality
+              );
+              newConjuredItem.decreasesQuality();
+              item.quality = this.manageItem.formatNegativeQuality(newConjuredItem.quality);
 
             } else {
               item.quality = item.quality - 1;
@@ -63,12 +73,5 @@ export class GildedRose {
         }
       }
     });
-  }
-
-  private formatNegativeQuality(quality: number): number {
-    if (quality < 0) {
-      quality = 0;
-    }
-    return quality;
   }
 }

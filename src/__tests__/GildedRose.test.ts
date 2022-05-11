@@ -1,5 +1,6 @@
 import { Item } from "../Item";
 import { GildedRose } from "../GildedRose";
+import { ConjuredItem } from "../ConjuredItem";
 
 
 describe("Gilded Rose should", () => {
@@ -13,7 +14,7 @@ describe("Gilded Rose should", () => {
   });
 
   it("decreases by two point quality per day in conjured items", () => {
-    const normalItems: Item[] = [new Item("conjured_item", 1, 2)];
+    const normalItems: ConjuredItem[] = [new ConjuredItem("conjured_item", 1, 2)];
     const app: GildedRose = new GildedRose(normalItems);
 
     app.updateQuality();
@@ -22,7 +23,7 @@ describe("Gilded Rose should", () => {
   });
 
   it("not decreases conjured items quality under zero", () => {
-    const normalItems: Item[] = [new Item("conjured_item", 1, 1)];
+    const normalItems: ConjuredItem[] = [new ConjuredItem("conjured_item", 1, 1)];
     const app: GildedRose = new GildedRose(normalItems);
 
     app.updateQuality();
