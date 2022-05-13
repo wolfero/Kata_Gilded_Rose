@@ -28,12 +28,12 @@ public class GildedRoseShould {
 
     @Test
     public void do_not_decreases_conjured_item_quality_under_zero() {
-        ConjuredItem conjured_item = new ConjuredItem("conjured_item", -2, 4);
+        ConjuredItem conjured_item = new ConjuredItem("conjured_item", 1, 1);
         ConjuredItem[] conjured_items = new ConjuredItem[]{conjured_item};
         GildedRose app = new GildedRose(conjured_items);
 
         app.updateQuality();
 
-        assertEquals(1, app.items[0].quality);
+        assertEquals(0, app.items[0].quality);
     }
 }
