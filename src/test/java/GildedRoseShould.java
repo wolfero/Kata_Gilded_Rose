@@ -36,4 +36,6 @@ public class GildedRoseShould {
 
         assertEquals(0, app.items[0].quality);
     }
+
+    //TODO add new test what control sellIn decreases
 }
